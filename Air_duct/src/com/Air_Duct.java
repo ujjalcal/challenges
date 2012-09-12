@@ -10,8 +10,10 @@ public class Air_Duct {
 	static int val=100;
 	static int tot0s = 0;
 	static int totPaths = 0;
+	static int quit = 0;
 
 	public static void main(String args[]) {
+		long start = System.nanoTime();    
 	    try {
 	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	        String s;
@@ -46,6 +48,9 @@ public class Air_Duct {
 	    } catch (Exception e) {
 	        System.err.println("Error:" + e.getMessage());
 	    }
+	    long elapsedTime = System.nanoTime() - start;
+	    System.out.println("Total time - "+elapsedTime+" nano secs");
+	    System.out.println("Total time - "+((double)elapsedTime / 1000000000.0)+" secs");
 
 
 	}
@@ -119,7 +124,7 @@ public class Air_Duct {
 		
 		if (rb && lb && ub && db)
 		{
-			System.out.println(ind+"====>> Quit - totPath:"+totPaths+" <<====\n");
+			System.out.println(ind+"====>> Quit "+(quit++)+" - totPath:"+totPaths+" <<====\n");
 			return end;
 		}
 		
